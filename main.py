@@ -1,4 +1,5 @@
-from fastapi.middleware.cors import CORSMiddleware, FastAPI
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from app.routes import docs_routes as documentos
 from app.routes import user_routes as usuarios
 
