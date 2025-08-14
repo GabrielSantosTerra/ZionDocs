@@ -51,7 +51,7 @@ def cadastrar(dados: UserCreateDcto, db: Session = Depends(get_db)):
     usuario = Usuario(
         id_pessoa=pessoa.id,
         email=dados.email,
-        senha=senha_hash
+        senha_hash=senha_hash
     )
     db.add(usuario)
     db.commit()

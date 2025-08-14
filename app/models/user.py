@@ -18,6 +18,6 @@ class Usuario(Base):
     id = Column(Integer, primary_key=True, index=True)
     id_pessoa = Column(Integer, ForeignKey("tb_pessoas.id"), nullable=False)
     email = Column(String, unique=True, nullable=False)
-    senha = Column(String, nullable=False)
+    senha_hash = Column(String, nullable=False)
 
     pessoa = relationship("Pessoa", back_populates="usuario")
