@@ -67,7 +67,7 @@ def cadastrar(dados: UserCreateDcto, db: Session = Depends(get_db)):
 @router.post("/entrar")
 def entrar(dados: UserLoginDcto, response: Response, db: Session = Depends(get_db)):
     usuario = db.query(Usuario).filter(Usuario.email == dados.email).first()
-    if not usuario or not verificar_senha(dados.senha, usuario.senha):
+    if not usuario or not verificar_senha(dados.senha, usuario.senha_hash):
         return JSONResponse(
             status_code=401,
             content={"mensagem": "Email ou senha inválidos."}
